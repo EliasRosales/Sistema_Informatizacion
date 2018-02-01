@@ -1,0 +1,401 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	background: #F5F5F4;	
+}
+.header{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 70px;
+	background: #0F1945;
+}
+.containerheaderoptions{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.headerOption{
+	position: relative;
+	float: left;
+	color: white;
+	width: 15%;
+	text-align: center;
+	font-size: 90%;
+	margin-top: 32px;
+    margin-left: 3%;
+
+}
+.headerOption:hover{
+	border-bottom: 1.5px solid white;
+	cursor:pointer;
+}
+.secciones{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100vh - 95px);
+	background: #F5F5F4;
+}
+
+.seccionesOficio{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: #F5F5F4;
+}
+
+.leftInicio{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 80%;
+}
+
+.leftInicioOficio{
+    position: relative;
+    float: left;
+    width: 50%;
+
+}
+
+.rightInicio{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 80%;
+}
+
+.rightInicioOficio{
+    position: relative;
+    float: left;
+    width: 50%;
+
+}
+
+.bottomInicio{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 20%;
+}
+.inputlittle{
+	position: relative;
+	float: left;
+	width: 60% !important;
+	margin-left: 20% !important;
+	height: 35px !important;
+	margin-top: 5% !important;
+}
+.inputbig{
+	position: relative;
+	float: left;
+	width: 60% !important;
+	margin-left: 10% !important;
+	height: 30% !important;
+	margin-top: 5% !important;
+}
+#folio{
+	margin-top: 15% !important;
+}
+#descripcion{
+	margin-top: 15% !important;
+}
+.titleOficios{
+	position: relative;
+	float: left;
+	width: 100%;
+	text-align: center;
+	color: #0F1945;
+	font-size: 15pt;
+	margin-top: 80px;
+}
+.listcontainer{
+	position: relative;
+	float: left;
+	width: 60%;
+	margin-left: 20%;
+	height: 70vh;
+	margin-top: 20px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3) ;
+	border-radius: 5px;
+	background: white;
+	overflow-y: scroll;
+}
+
+.listcontainerOficios{
+	position: relative;
+	float: left;
+	width: 60%;
+	margin-left: 20%;
+	height: 70vh;
+	margin-top: 20px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3) ;
+	border-radius: 5px;
+	background: white;
+	overflow-y: scroll;
+}
+.listcontainer::-webkit-scrollbar {
+      width: 0px;
+}
+
+.listcontainerOficios::-webkit-scrollbar {
+	width: 0px;
+}
+
+.list_element{
+	position: relative;
+	float: left;
+	width: 100%;
+	background: transparent;
+	border-bottom: 1px solid #0F1945;
+}
+.list_element:hover{
+	cursor: pointer;
+}
+.edit_Container{
+	position: relative;
+	float: left;
+	width: 70%;
+	margin-left: 5%;
+	height: 82vh;
+	margin-top: 30px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3) ;
+	border-radius: 5px;
+	background: white;
+	border: 1px solid #0F1945;
+	overflow-y: scroll;
+}
+.edit_Container::-webkit-scrollbar {
+      width: 0px;
+}
+.miniinput{
+	position: relative;
+	float: left;
+	width: 30% !important;
+	margin-left: 13% !important;
+	height: 34px !important;
+	margin-top: 40px !important;
+}
+.miniinput2{
+	position: relative;
+	float: left;
+	width: 170px !important;
+	margin-left: 10% !important;
+	height: 34px !important;
+	margin-top: 40px !important;
+}
+.inputmedium{
+	position: relative;
+	float: left;
+	width: 73% !important;
+	margin-left: 13% !important;
+	height: 35px !important;
+	margin-top: 20px !important;
+}
+.inputbigger{
+	position: relative;
+	float: left;
+	width: 73% !important;
+	margin-left: 13% !important;
+	height: 100px !important;
+	margin-top: 20px !important;
+}
+.btnsmall{
+	position: relative;
+	float: left;
+	width: 30% !important;
+	margin-left: 13% !important;
+	height: 34px !important;
+	margin-top: 20px !important;
+	background: #0F1945;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+.btnsmall:hover{
+	cursor: pointer;
+}
+.Smalledit_Container{
+	position: relative;
+	float: left;
+	width: 70%;
+	margin-left: 5%;
+	height: 33vh;
+	margin-top: 50px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3) ;
+	border-radius: 5px;
+	background: white;
+	border: 1px solid #0F1945;
+}
+.btnMedium{
+	position: relative;
+	float: left;
+	width: 73% !important;
+	margin-left: 13% !important;
+	height: 35px !important;
+	margin-top: 20px !important;
+	background: #0F1945;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+.btnMedium:hover{
+	cursor: pointer;
+}
+.filtros{
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+.filtrosOficios{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 30% !important;
+}
+.inputfiltro{
+	position: relative;
+	float: right;
+	width: 170px !important;
+	height: 34px !important;
+	margin-top: 20px !important;
+	margin-right: 2% !important;
+}
+.btnFiltro{
+	position: relative;
+	float: right;
+	width: 80px !important;
+	height: 34px !important;
+	margin-top: 20px !important;
+	margin-right: 10%;
+	background: #0F1945;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+
+}
+.btnFiltro:hover{
+	cursor: pointer;
+}
+.txtfiltro{
+	position: relative;
+	float: right;
+	height: 34px !important;
+	margin-top: 20px !important;
+	text-align: center;
+	margin-right: 2% !important;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+
+.listcontainerBig{
+	position: relative;
+	float: left;
+	width: 70%;
+	margin-left: 15%;
+	height: 67vh;
+	margin-top: 10px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3) ;
+	border-radius: 5px;
+	background: white;
+	overflow-y: scroll;
+}
+.listcontainerBig::-webkit-scrollbar {
+      width: 0px;
+}
+.titleEstadisticas{
+	position: relative;
+	float: left;
+	width: 100%;
+	text-align: center;
+	color: #0F1945;
+	font-size: 15pt;
+	margin-top: 10px;
+}
+.txttotal{
+	position: relative;
+	float: left;
+	color: #0F1945;
+	height: 34px !important;
+	margin-top: 20px !important;
+	text-align: center;
+	margin-left: 7% !important;
+	padding-top: 2px;
+	font-size: 15pt;
+	box-sizing: border-box;
+}
+.footer{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 25px;
+	background: #0F1945;
+    bottom:0;
+}
+.txtfooter{
+	position: relative;
+	float: left;
+	margin-left: 20px;
+	color: white;
+	height: 25px;
+	margin-bottom: 0px !important;
+}
+.txtfooter2{
+	position: relative;
+	float: right;
+	margin-right: 20px;
+	color: white;
+	height: 25px;
+	margin-bottom: 0px !important;
+}
+.buttonVeryBig{
+	position: relative;
+	float: left;
+	width: 30%;
+	left: 50%;
+	margin-top: 5vh;
+	color: white;
+	height: 35px;
+	background: #0F1945;
+	margin-left: -15%;
+	text-align: center;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+.buttonVeryBig:hover{
+ cursor: pointer;
+}
+.oficioFolio{
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 13pt;
+	margin-bottom: 0px !important;
+}
+.oficioFecha{
+	position: relative;
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+	font-size: 13pt;
+	margin-bottom: 0px !important;
+}
+.oficioRemitente{
+	position: relative;
+	float: left;
+	width: 100%;
+	padding-left: 10px;
+	font-size: 13pt;
+	margin-bottom: 0px !important;
+}

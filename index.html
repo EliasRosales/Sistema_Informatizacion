@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Informatizacion</title>
+
+<!-- STYLE ZONE -->
+
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/swiper.min.css">  
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/foundation.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/hover.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.min.css">
+
+<!-- STYLE ZONE -->
+
+</head>
+<body>
+
+<!-- Seccion Header -->
+
+	<div class="header">
+		<div class="containerheaderoptions">
+			<p class="headerOption" id="btn_inicio">Inicio</p>
+			<p class="headerOption" id="btn_oficios">Oficios</p>
+			<p class="headerOption" id="btn_departamentos">Departamentos</p>
+			<p class="headerOption" id="btn_remitentes">Remitentes</p>
+			<p class="headerOption" id="btn_estadisticas">Estadisticas</p>
+		</div>		
+	</div>
+
+<!-- Seccion de inicio -->
+
+	<div class="secciones inicio">
+		<div class="leftInicio">
+			<input type="text" class="inputlittle" id="ini_folio" placeholder="Folio">
+			<input type="date" class="inputlittle" id="ini_fecha" placeholder="Fecha">
+			<select class="inputlittle" id="comDep">
+			  <option value="volvo">Departamento</option>
+			</select>
+			<select class="inputlittle" id="comRem">
+			  <option value="volvo">Remitente</option>
+			</select>
+		</div>
+		<div class="rightInicio">
+			<textarea class="inputbig ini_desc" id="descripcion" placeholder="Descripcion"></textarea>
+			<textarea class="inputbig ini_obs" id="observaciones" placeholder="Observaciones"></textarea>
+		</div>
+		<div class="bottomInicio">
+			<p class="buttonVeryBig" id="btn_inicio_nuevo">GUARDAR</p>
+		</div>
+	</div>
+
+<!-- Seccion de oficios -->
+
+	<div class="secciones oficios" hidden>
+        <div class="filtrosOficios">
+            <p class="txttotal" id="est_total_folios_oficios">Totalde folios: 0</p>
+            <p class="btnFiltro" id="btn_est_filtrar_oficios">Filtrar</p>
+            <input type="date" class="inputfiltro" id="est_fecha_fin_oficios">
+            <p class="txtfiltro">a</p>
+            <input type="date" class="inputfiltro" id="est_fecha_inicio_oficios">
+
+            <select class="inputmedium comDep" id="comDepOficio">
+                <option value="volvo">Departamento</option>
+            </select>
+        </div>
+
+		<div class="leftInicioOficio">
+			<p class="titleOficios">OFICIOS</p>
+			<div class="listcontainerOficios" id="of_list_content">
+				
+			</div>
+		</div>
+		<div class="rightInicioOficio">
+			<div class="edit_Container" id="content_of">
+				<input type="text" class="miniinput" id="of_folio" placeholder="Folio">
+				<input type="date" class="miniinput2" id="of_fecha">
+				<select class="inputmedium comDep" id="comDep">
+				  <option value="volvo">Departamento</option>
+				</select>
+				<select class="inputmedium comRem" id="comRem">
+				  <option value="volvo">Remitente</option>
+				</select>
+				<textarea class="inputbigger of_desc" placeholder="Descripcion"></textarea>
+				<textarea class="inputbigger of_obs" placeholder="Observaciones"></textarea>
+				<p class="btnsmall" id="btn_of_editar">EDITAR</p>
+				<p class="btnsmall" id="btn_of_eliminar">ELIMINAR</p>
+			</div>
+		</div>
+	</div>
+
+<!-- Seccion Departamentos -->
+
+	<div class="secciones departamentos" hidden>
+		<div class="leftInicio">
+			<p class="titleOficios">DEPARTAMENTOS</p>
+			<div class="listcontainer" id="dep_list_content">
+
+			</div>
+		</div>
+		<div class="rightInicio">
+			<div class="Smalledit_Container">
+				<input type="text" class="inputmedium" id="inp_dep_nombre" placeholder="Nombre">
+				<input type="text" class="inputmedium" id="inp_dep_responsable" placeholder="Encargado">
+				<p class="btnMedium" id="btn_dep_nuevo">AGREGAR</p>
+			</div>
+			<div class="Smalledit_Container" id="content_dep">
+				<input type="text" class="inputmedium" id="inp_dep_ed_nombre" placeholder="Nombre">
+				<input type="text" class="inputmedium" id="inp_dep_ed_responsable" placeholder="Encargado">
+				<p class="btnsmall" id="btn_dep_editar">EDITAR</p>
+				<p class="btnsmall" id="btn_dep_eliminar">ELIMINAR</p>
+			</div>
+		</div>
+	</div>
+
+<!-- Seccion Remitentes -->
+
+	<div class="secciones remitentes" hidden>
+		<div class="leftInicio">
+			<p class="titleOficios">REMITENTES</p>
+			<div class="listcontainer" id="rem_list_content">
+
+			</div>
+		</div>
+		<div class="rightInicio">
+			<div class="Smalledit_Container">
+				<input type="text" class="inputmedium" id="inp_rem_nombre" placeholder="Nombre">
+				<input type="text" class="inputmedium" id="inp_rem_responsable" placeholder="Encargado">
+				<p class="btnMedium" id="btn_rem_nuevo">AGREGAR</p>
+			</div>
+			<div class="Smalledit_Container" id="content_rem">
+				<input type="text" class="inputmedium" id="inp_rem_ed_nombre" placeholder="Nombre">
+				<input type="text" class="inputmedium" id="inp_rem_ed_responsable" placeholder="Encargado">
+				<p class="btnsmall" id="btn_rem_editar">EDITAR</p>
+				<p class="btnsmall" id="btn_rem_eliminar">ELIMINAR</p>
+			</div>
+		</div>
+	</div>
+
+<!-- Seccion Estadisticas -->
+
+	<div class="secciones estadisticas" hidden>
+		<div class="filtros">
+			<p class="txttotal" id="est_total_folios">Totalde folios: 0</p>
+			<p class="btnFiltro" id="btn_est_filtrar">Filtrar</p>
+			<input type="date" class="inputfiltro" id="est_fecha_fin">
+			<p class="txtfiltro">a</p>
+			<input type="date" class="inputfiltro" id="est_fecha_inicio">
+
+		</div>
+		<div class="leftInicio">
+			<p class="titleEstadisticas">Folios por Departamentos</p>
+			<div class="listcontainerBig" id="est_dep_list_content">
+				
+			</div>
+		</div>
+		<div class="rightInicio">
+			<p class="titleEstadisticas">Folios por Remitentes</p>
+			<div class="listcontainerBig" id="est_rem_list_content">
+				
+			</div>
+		</div>
+	</div>
+<!--Footer-->
+	<div class="footer">
+		<p class="txtfooter">Sistema de gestion de oficios    Informatizacion 2017</p>
+		<p class="txtfooter2">Made by CLARES</p>
+	</div>
+<!-- SCRIPT ZONE -->
+    
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/skrollr.min.js"></script>
+	<script src="js/mandrill.js"></script>
+	<!-- Minified version of `es6-promise-auto` below. -->
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.5/sweetalert2.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/nicescroll.js"></script>
+    <script src="js/index.js"></script>
+
+<!-- SCRIPT ZONE -->
+
+</body>
+</html>
