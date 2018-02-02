@@ -3,14 +3,16 @@
 	margin: 0px;
 }
 body{
-	background: #F5F5F4;	
+	background: #F5F5F4;
 }
 .header{
 	position: relative;
 	float: left;
 	width: 100%;
-	height: 70px;
+	/*height: 70px;*/
+	height: auto;/*line inserted*/
 	background: #0F1945;
+	background-size: 100% auto !important;/*line inserted*/
 }
 .containerheaderoptions{
 	position: relative;
@@ -26,7 +28,7 @@ body{
 	text-align: center;
 	font-size: 90%;
 	margin-top: 32px;
-    margin-left: 3%;
+	margin-left: 3%;
 
 }
 .headerOption:hover{
@@ -42,11 +44,11 @@ body{
 }
 
 .seccionesOficio{
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 100%;
-    background: #F5F5F4;
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: #F5F5F4;
 }
 
 .leftInicio{
@@ -57,9 +59,9 @@ body{
 }
 
 .leftInicioOficio{
-    position: relative;
-    float: left;
-    width: 50%;
+	position: relative;
+	float: left;
+	width: 50%;
 
 }
 
@@ -71,9 +73,9 @@ body{
 }
 
 .rightInicioOficio{
-    position: relative;
-    float: left;
-    width: 50%;
+	position: relative;
+	float: left;
+	width: 50%;
 
 }
 
@@ -140,7 +142,7 @@ body{
 	overflow-y: scroll;
 }
 .listcontainer::-webkit-scrollbar {
-      width: 0px;
+	width: 0px;
 }
 
 .listcontainerOficios::-webkit-scrollbar {
@@ -171,7 +173,7 @@ body{
 	overflow-y: scroll;
 }
 .edit_Container::-webkit-scrollbar {
-      width: 0px;
+	width: 0px;
 }
 .miniinput{
 	position: relative;
@@ -311,7 +313,7 @@ body{
 	overflow-y: scroll;
 }
 .listcontainerBig::-webkit-scrollbar {
-      width: 0px;
+	width: 0px;
 }
 .titleEstadisticas{
 	position: relative;
@@ -335,12 +337,12 @@ body{
 	box-sizing: border-box;
 }
 .footer{
-	position: relative;
+	position: fixed;
 	float: left;
 	width: 100%;
 	height: 25px;
 	background: #0F1945;
-    bottom:0;
+	bottom:0;
 }
 .txtfooter{
 	position: relative;
@@ -373,7 +375,7 @@ body{
 	box-sizing: border-box;
 }
 .buttonVeryBig:hover{
- cursor: pointer;
+	cursor: pointer;
 }
 .oficioFolio{
 	position: relative;
