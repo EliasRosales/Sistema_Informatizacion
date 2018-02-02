@@ -57,24 +57,23 @@
 
 	<div class="secciones oficios" hidden>
         <div class="filtrosOficios">
-            <p class="txttotal" id="est_total_folios_oficios">Total de folios: 0</p>
+            <p class="txttotal" id="est_total_folios_oficios"># folios: 0</p>
+			<select class="inputmediumOficio comDep" id="comDepOficio">
+				<option value="volvo">Departamento</option>
+			</select>
             <p class="btnFiltro" id="btn_est_filtrar_oficios">Filtrar</p>
-            <input type="date" class="inputfiltro" id="est_fecha_fin_oficios">
+            <input type="date" class="inputfiltroOficio" id="est_fecha_fin_oficios">
             <p class="txtfiltro">a</p>
-            <input type="date" class="inputfiltro" id="est_fecha_inicio_oficios">
-
-            <select class="inputmedium comDep" id="comDepOficio">
-                <option value="volvo">Departamento</option>
-            </select>
+            <input type="date" class="inputfiltroOficio" id="est_fecha_inicio_oficios">
         </div>
 
-		<div class="leftInicioOficio">
+		<div class="leftInicio">
 			<p class="titleOficios">OFICIOS</p>
 			<div class="listcontainerOficios" id="of_list_content">
 				
 			</div>
 		</div>
-		<div class="rightInicioOficio">
+		<div class="rightInicio">
 			<div class="edit_Container" id="content_of">
 				<input type="text" class="miniinput" id="of_folio" placeholder="Folio">
 				<input type="date" class="miniinput2" id="of_fecha">

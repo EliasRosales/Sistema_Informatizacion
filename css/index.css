@@ -26,7 +26,7 @@ body{
 	color: white;
 	width: 15%;
 	text-align: center;
-	font-size: 90%;
+	font-size: 2vw;
 	margin-top: 32px;
 	margin-left: 3%;
 
@@ -58,25 +58,11 @@ body{
 	height: 80%;
 }
 
-.leftInicioOficio{
-	position: relative;
-	float: left;
-	width: 50%;
-
-}
-
 .rightInicio{
 	position: relative;
 	float: left;
 	width: 50%;
 	height: 80%;
-}
-
-.rightInicioOficio{
-	position: relative;
-	float: left;
-	width: 50%;
-
 }
 
 .bottomInicio{
@@ -199,6 +185,17 @@ body{
 	height: 35px !important;
 	margin-top: 20px !important;
 }
+
+.inputmediumOficio{
+    position: relative;
+    float: left;
+    width: 18% !important;
+    margin-left: 2% !important;
+    height: 20% !important;
+    margin-top:2.5% !important;
+    font-size: 1.3vw;
+}
+
 .inputbigger{
 	position: relative;
 	float: left;
@@ -271,19 +268,32 @@ body{
 	margin-top: 20px !important;
 	margin-right: 2% !important;
 }
-.btnFiltro{
-	position: relative;
-	float: right;
-	width: 80px !important;
-	height: 34px !important;
-	margin-top: 20px !important;
-	margin-right: 10%;
-	background: #0F1945;
-	color: white;
-	text-align: center;
-	padding-top: 5px;
+
+.inputfiltroOficio{
+    position: relative;
+    float: right;
+    width: 17% !important;
+    height: 20% !important;
+    margin-top: 2.5% !important;
+    margin-right: 2% !important;
+    font-size: 1.3vw !important;
+}
+
+.btnFiltro {
+    position: relative;
+    float: right;
+    width: 10% !important;
+    height: 20% !important;
+    margin-top: 2.5% !important;
+    margin-right: 10%;
+    background: #0F1945;
+    color: white;
+    padding-top: 4px;
+    text-align: center;
 	box-sizing: border-box;
 	border-radius: 5px;
+    font-size: 1.3vw;
+
 
 }
 .btnFiltro:hover{
@@ -293,11 +303,12 @@ body{
 	position: relative;
 	float: right;
 	height: 34px !important;
-	margin-top: 20px !important;
+	margin-top: 2.5% !important;
 	text-align: center;
 	margin-right: 2% !important;
 	padding-top: 5px;
 	box-sizing: border-box;
+    font-size: 2vw;
 }
 
 .listcontainerBig{
@@ -333,7 +344,7 @@ body{
 	text-align: center;
 	margin-left: 7% !important;
 	padding-top: 2px;
-	font-size: 15pt;
+	font-size: 2vw;
 	box-sizing: border-box;
 }
 .footer{
