@@ -62,7 +62,7 @@ body{
 	position: relative;
 	float: left;
 	width: 50%;
-	height: 80%;
+	height: 70% !important;
 }
 
 .bottomInicio{
@@ -100,7 +100,7 @@ body{
 	text-align: center;
 	color: #0F1945;
 	font-size: 15pt;
-	margin-top: 80px;
+	margin-top: 1%;
 }
 .listcontainer{
 	position: relative;
