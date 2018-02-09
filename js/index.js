@@ -32,6 +32,56 @@ function cargar_combos(){
 
 // Seccion Inicio ---------------------------------------------------
 
+// Seccion Oficios ---------------------------------------------------
+
+$('#btn_ofi_filtrar').click(function(event) {
+    var fecha_inicio = $('#ofi_fecha_inicio').val();
+    var fecha_fin = $('#ofi_fecha_fin').val();
+    var dep = $('#comDepOficio').val();
+    var rem = $('#comRemOficio').val();
+    if((fecha_inicio != '' && fecha_fin != '') || (dep != 'volvo') || (rem != 'volvo')){
+        $('#of_list_content').html('')
+        $.post(url + 'get_oficios_filtro/', {
+            fecha_inicio: fecha_inicio,
+            fecha_fin: fecha_fin,
+            departamento_id: dep,
+            remitente_id: rem
+
+        }, function(data, textStatus, xhr) {
+            $.each(data.oficios, function(index, val) {
+                $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                    '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                    '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                    '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                    '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                    '</div>');
+            });
+            $('.of_list_element').click(function(event) {
+                $('.of_list_element').css('background', '#fff');
+                $(this).css('background', '#d9d9d9');
+                var id = $(this).attr('id');
+                $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                    if(data.response == 1){
+                        $('#of_folio').val(data.oficio.folio);
+                        $('#of_fecha').val(data.oficio.fecha_oficio);
+                        $('.comDep').val(data.oficio.departamentos);
+                        $('.comRem').val(data.oficio.remitente);
+                        $('.of_desc').val(data.oficio.descripcion);
+                        $('.of_obs').val(data.oficio.observaciones);
+                        $('#content_of').attr('pk', id);
+                    }else{
+                        msg_error('Ocurrio un error, intente nuevamente');
+                    }
+                });
+            });
+        });
+
+    }else{
+        msg_advertencia('Para poder filtrar primero debes seleccionar las dos fechas del rango');
+    }
+
+});
+
 $('#btn_inicio_nuevo').click(function(event) {
 	var folio = $('#ini_folio').val();
 	var fecha = $('#ini_fecha').val();
@@ -67,7 +117,6 @@ $('#btn_inicio_nuevo').click(function(event) {
 	}
 });
 
-// Seccion Oficios ---------------------------------------------------
 
 $('#btn_of_editar').click(function(event) {
 	var id = $('#content_of').attr('pk');
