@@ -39,7 +39,7 @@ $('#btn_ofi_filtrar').click(function(event) {
     var fecha_fin = $('#ofi_fecha_fin').val();
     var dep = $('#comDepOficio').val();
     var rem = $('#comRemOficio').val();
-    if((fecha_inicio != '' && fecha_fin != '') || (dep != 'volvo') || (rem != 'volvo')){
+    if((fecha_inicio != '' && fecha_fin != '') && (dep != 'volvo' && rem != 'volvo')){
         $('#of_list_content').html('')
         $.post(url + 'get_oficios_filtro/', {
             fecha_inicio: fecha_inicio,
@@ -76,9 +76,226 @@ $('#btn_ofi_filtrar').click(function(event) {
             });
         });
 
-    }else{
-        msg_advertencia('Para poder filtrar primero debes seleccionar las dos fechas del rango');
-    }
+    }else if ((fecha_inicio != '' && fecha_fin != '') && (dep == 'volvo' && rem == 'volvo')){
+            $('#of_list_content').html('')
+            $.post(url + 'get_oficios_filtro/', {
+                fecha_inicio: fecha_inicio,
+                fecha_fin: fecha_fin,
+                departamento_id: "",
+                remitente_id: ""
+
+            }, function(data, textStatus, xhr) {
+                $.each(data.oficios, function(index, val) {
+                    $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                        '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                        '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                        '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                        '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                        '</div>');
+                });
+                $('.of_list_element').click(function(event) {
+                    $('.of_list_element').css('background', '#fff');
+                    $(this).css('background', '#d9d9d9');
+                    var id = $(this).attr('id');
+                    $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                        if(data.response == 1){
+                            $('#of_folio').val(data.oficio.folio);
+                            $('#of_fecha').val(data.oficio.fecha_oficio);
+                            $('.comDep').val(data.oficio.departamentos);
+                            $('.comRem').val(data.oficio.remitente);
+                            $('.of_desc').val(data.oficio.descripcion);
+                            $('.of_obs').val(data.oficio.observaciones);
+                            $('#content_of').attr('pk', id);
+                        }else{
+                            msg_error('Ocurrio un error, intente nuevamente');
+                        }
+                    });
+                });
+            });
+        }else if ((fecha_inicio != '' && fecha_fin != '') && (dep != 'volvo' && rem == 'volvo')){
+                $('#of_list_content').html('')
+                $.post(url + 'get_oficios_filtro/', {
+                    fecha_inicio: fecha_inicio,
+                    fecha_fin: fecha_fin,
+                    departamento_id: dep,
+                    remitente_id: ""
+
+                }, function(data, textStatus, xhr) {
+                    $.each(data.oficios, function(index, val) {
+                        $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                            '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                            '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                            '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                            '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                            '</div>');
+                    });
+                    $('.of_list_element').click(function(event) {
+                        $('.of_list_element').css('background', '#fff');
+                        $(this).css('background', '#d9d9d9');
+                        var id = $(this).attr('id');
+                        $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                            if(data.response == 1){
+                                $('#of_folio').val(data.oficio.folio);
+                                $('#of_fecha').val(data.oficio.fecha_oficio);
+                                $('.comDep').val(data.oficio.departamentos);
+                                $('.comRem').val(data.oficio.remitente);
+                                $('.of_desc').val(data.oficio.descripcion);
+                                $('.of_obs').val(data.oficio.observaciones);
+                                $('#content_of').attr('pk', id);
+                            }else{
+                                msg_error('Ocurrio un error, intente nuevamente');
+                            }
+                        });
+                    });
+                });
+                }else if ((fecha_inicio == '' && fecha_fin == '') && (dep != 'volvo' && rem == 'volvo')){
+                            $('#of_list_content').html('')
+                            $.post(url + 'get_oficios_filtro/', {
+                                fecha_inicio: "",
+                                fecha_fin: "",
+                                departamento_id: dep,
+                                remitente_id: ""
+
+                            }, function(data, textStatus, xhr) {
+                                $.each(data.oficios, function(index, val) {
+                                    $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                                        '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                                        '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                                        '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                                        '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                                        '</div>');
+                                });
+                                $('.of_list_element').click(function(event) {
+                                    $('.of_list_element').css('background', '#fff');
+                                    $(this).css('background', '#d9d9d9');
+                                    var id = $(this).attr('id');
+                                    $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                                        if(data.response == 1){
+                                            $('#of_folio').val(data.oficio.folio);
+                                            $('#of_fecha').val(data.oficio.fecha_oficio);
+                                            $('.comDep').val(data.oficio.departamentos);
+                                            $('.comRem').val(data.oficio.remitente);
+                                            $('.of_desc').val(data.oficio.descripcion);
+                                            $('.of_obs').val(data.oficio.observaciones);
+                                            $('#content_of').attr('pk', id);
+                                        }else{
+                                            msg_error('Ocurrio un error, intente nuevamente');
+                                        }
+                                    });
+                                });
+                            });
+                        }else if ((fecha_inicio != '' && fecha_fin != '') && (dep == 'volvo' && rem != 'volvo')){
+                                $('#of_list_content').html('')
+                                $.post(url + 'get_oficios_filtro/', {
+                                    fecha_inicio: fecha_inicio,
+                                    fecha_fin: fecha_fin,
+                                    departamento_id: "",
+                                    remitente_id: rem
+
+                                }, function(data, textStatus, xhr) {
+                                    $.each(data.oficios, function(index, val) {
+                                        $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                                            '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                                            '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                                            '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                                            '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                                            '</div>');
+                                    });
+                                    $('.of_list_element').click(function(event) {
+                                        $('.of_list_element').css('background', '#fff');
+                                        $(this).css('background', '#d9d9d9');
+                                        var id = $(this).attr('id');
+                                        $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                                            if(data.response == 1){
+                                                $('#of_folio').val(data.oficio.folio);
+                                                $('#of_fecha').val(data.oficio.fecha_oficio);
+                                                $('.comDep').val(data.oficio.departamentos);
+                                                $('.comRem').val(data.oficio.remitente);
+                                                $('.of_desc').val(data.oficio.descripcion);
+                                                $('.of_obs').val(data.oficio.observaciones);
+                                                $('#content_of').attr('pk', id);
+                                            }else{
+                                                msg_error('Ocurrio un error, intente nuevamente');
+                                            }
+                                        });
+                                    });
+                                });
+                            }else if ((fecha_inicio == '' && fecha_fin == '') && (dep == 'volvo' && rem != 'volvo')){
+                                    $('#of_list_content').html('')
+                                    $.post(url + 'get_oficios_filtro/', {
+                                        fecha_inicio: "",
+                                        fecha_fin: "",
+                                        departamento_id: "",
+                                        remitente_id: rem
+
+                                    }, function(data, textStatus, xhr) {
+                                        $.each(data.oficios, function(index, val) {
+                                            $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                                                '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                                                '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                                                '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                                                '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                                                '</div>');
+                                        });
+                                        $('.of_list_element').click(function(event) {
+                                            $('.of_list_element').css('background', '#fff');
+                                            $(this).css('background', '#d9d9d9');
+                                            var id = $(this).attr('id');
+                                            $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                                                if(data.response == 1){
+                                                    $('#of_folio').val(data.oficio.folio);
+                                                    $('#of_fecha').val(data.oficio.fecha_oficio);
+                                                    $('.comDep').val(data.oficio.departamentos);
+                                                    $('.comRem').val(data.oficio.remitente);
+                                                    $('.of_desc').val(data.oficio.descripcion);
+                                                    $('.of_obs').val(data.oficio.observaciones);
+                                                    $('#content_of').attr('pk', id);
+                                                }else{
+                                                    msg_error('Ocurrio un error, intente nuevamente');
+                                                }
+                                            });
+                                        });
+                                    });
+                                }else if ((fecha_inicio == '' && fecha_fin == '') && (dep != 'volvo' && rem != 'volvo')){
+                                        $('#of_list_content').html('')
+                                        $.post(url + 'get_oficios_filtro/', {
+                                            fecha_inicio: "",
+                                            fecha_fin: "",
+                                            departamento_id: dep,
+                                            remitente_id: rem
+
+                                        }, function(data, textStatus, xhr) {
+                                            $.each(data.oficios, function(index, val) {
+                                                $('#of_list_content').append('<div class="list_element of_list_element" id="' + val['id'] + '">' +
+                                                    '<p class="oficioFolio"><strong>Folio:</strong> ' + val['folio'] + '</p>' +
+                                                    '<p class="oficioFecha"><strong>Fecha:</strong> ' + val['fecha_oficio'] + '</p>' +
+                                                    '<p class="oficioRemitente"><strong>Remitente:</strong> ' + val['remitente'] + '</p>' +
+                                                    '<p class="oficioRemitente"><strong>Departamento:</strong> ' + val['departamentos'] + '</p>' +
+                                                    '</div>');
+                                            });
+                                            $('.of_list_element').click(function(event) {
+                                                $('.of_list_element').css('background', '#fff');
+                                                $(this).css('background', '#d9d9d9');
+                                                var id = $(this).attr('id');
+                                                $.get(url + 'get_oficios_by_id/' + id + '/' , function(data) {
+                                                    if(data.response == 1){
+                                                        $('#of_folio').val(data.oficio.folio);
+                                                        $('#of_fecha').val(data.oficio.fecha_oficio);
+                                                        $('.comDep').val(data.oficio.departamentos);
+                                                        $('.comRem').val(data.oficio.remitente);
+                                                        $('.of_desc').val(data.oficio.descripcion);
+                                                        $('.of_obs').val(data.oficio.observaciones);
+                                                        $('#content_of').attr('pk', id);
+                                                    }else{
+                                                        msg_error('Ocurrio un error, intente nuevamente');
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    }else if((fecha_inicio == '' && fecha_fin == '') && (dep == 'volvo' && rem == 'volvo')){
+                                            llenar_oficios();
+                                            }
+
 
 });
 
@@ -119,45 +336,45 @@ $('#btn_inicio_nuevo').click(function(event) {
 
 
 $('#btn_of_editar').click(function(event) {
-	var id = $('#content_of').attr('pk');
-	var folio = $('#of_folio').val();
-	var fecha = $('#of_fecha').val();
-	var dep = $('.comDep').val();
-	var rem = $('.comRem').val();
-	var desc = $('.of_desc').val();
-	var obs = $('.of_obs').val();
-	if(id != undefined){
-		if(folio != '' && fecha != '' && dep != 'volvo' && rem != 'volvo' && desc != ''){
-			$.post(url + 'update_oficio/', {
-				oficio_id: id,
-				fecha_oficio: fecha,
-				descripcion: desc,
-				folio: folio,
-				observaciones: obs,
-				departamento_id: dep,
-				remitente_id: rem,
-			}, function(data, textStatus, xhr) {
-				if(data.response == 1){
-					msg_correcto('Se actualizo correctamente el oficio');
-					$('#of_folio').val('');
-					$('#of_fecha').val('');
-					$('.comDep').val('volvo');
-					$('.comRem').val('volvo');
-					$('.of_desc').val('');
-					$('.of_obs').val('');
-					$('#content_of').removeAttr('pk');
-					llenar_oficios();
-					llenar_estadisticas();
-				}else{
-					msg_error('Ocurrio un error, intente nuevamente');
-				}
-			});
-		}else{
-			msg_advertencia('Para poder agregar un nuevo oficio, es necesario llenar todos los campos a excepcion de observaciones');
-		}
-	}else{
-		msg_advertencia('Para poder editar primero debes seleccionar un oficio');
-	}
+    var id = $('#content_of').attr('pk');
+    var folio = $('#of_folio').val();
+    var fecha = $('#of_fecha').val();
+    var dep = $('.comDep').val();
+    var rem = $('.comRem').val();
+    var desc = $('.of_desc').val();
+    var obs = $('.of_obs').val();
+    if(id != undefined){
+        if(folio != '' && fecha != '' && dep != 'volvo' && rem != 'volvo' && desc != ''){
+            $.post(url + 'update_oficio/', {
+                oficio_id: id,
+                fecha_oficio: fecha,
+                descripcion: desc,
+                folio: folio,
+                observaciones: obs,
+                departamento_id: dep,
+                remitente_id: rem,
+            }, function(data, textStatus, xhr) {
+                if(data.response == 1){
+                    msg_correcto('Se actualizo correctamente el oficio');
+                    $('#of_folio').val('');
+                    $('#of_fecha').val('');
+                    $('.comDep').val('volvo');
+                    $('.comRem').val('volvo');
+                    $('.of_desc').val('');
+                    $('.of_obs').val('');
+                    $('#content_of').removeAttr('pk');
+                    llenar_oficios();
+                    llenar_estadisticas();
+                }else{
+                    msg_error('Ocurrio un error, intente nuevamente');
+                }
+            });
+        }else{
+            msg_advertencia('Para poder agregar un nuevo oficio, es necesario llenar todos los campos a excepcion de observaciones');
+        }
+    }else{
+        msg_advertencia('Para poder editar primero debes seleccionar un oficio');
+    }
 });
 
 $('#btn_of_eliminar').click(function(event) {
