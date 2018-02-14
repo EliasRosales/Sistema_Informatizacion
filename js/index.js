@@ -2,12 +2,22 @@ var url = "http://localhost:8000/api/"
 	
 
 $(document).ready(function() {
-	
-	cargar_combos();
-	llenar_departamentos();
-	llenar_remitentes();
-	llenar_oficios();
-	llenar_estadisticas();
+    $('html').niceScroll();
+    $(document).foundation();
+    if("Id" in localStorage) {
+        swal(
+            'Bienvenido',
+            localStorage.getItem("Name") + ' ' + localStorage.getItem("LastName"),
+            'success'
+        );
+        cargar_combos();
+        llenar_departamentos();
+        llenar_remitentes();
+        llenar_oficios();
+        llenar_estadisticas();
+    }else{
+        window.location.href = "Login/login.html";
+    }
 
 });
 
